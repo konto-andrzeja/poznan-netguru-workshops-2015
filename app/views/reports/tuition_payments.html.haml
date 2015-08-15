@@ -1,0 +1,18 @@
+- breadcrumb :tuition_payments
+.tuition_payments
+  .payments-header
+    list of tuition payments:
+  %table.table.table-condensed#payments
+    %thead
+      %tr
+        %th.full-name=  t('tuition_payments.columns.full_name')
+        %th.month=      t('tuition_payments.columns.month')
+        %th.date=       t('tuition_payments.columns.date')
+        %th.amount=     t('tuition_payments.columns.amount')
+    %tbody
+      - tuition_payment_items.each do |tuition_payment|
+        %tr
+          %td= tuition_payment.decorate.sortable_full_name
+          %td= tuition_payment.decorate.sortable_year_and_month
+          %td= tuition_payment.decorate.sortable_date
+          %td= tuition_payment.decorate.amount_paid

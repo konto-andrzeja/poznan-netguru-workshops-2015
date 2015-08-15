@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20150810192834) do
   add_index "subject_item_notes", ["subject_item_id"], name: "index_subject_item_notes_on_subject_item_id", using: :btree
   add_index "subject_item_notes", ["student_id"], name: "index_subject_item_notes_on_student_id", using: :btree
 
+  create_table "tuition_payments", force: :cascade do |t|
+    t.integer "amount", null: false
+    t.date "month", null: false
+    t.datetime "date", null: false
+    t.integer "student_id"
+  end
+
+  add_index "tuition_payments", ["student_id"], name: "index_tuition_payments_on_student_id", using: :btree
+
   create_table "subject_items", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false

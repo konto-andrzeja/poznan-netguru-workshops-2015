@@ -19,11 +19,25 @@ teachers = Teacher.all
 end
 
 40.times do
-  Student.create!(
+  student = Student.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     birthdate: Faker::Date.birthday(19, 35)
   )
+  #for every student create random tuition payments
+  years = (2005..2015).to_a.shuffle
+  (1..rand(0..2)).each {
+    year = years.pop
+    months = (1..12).to_a.shuffle
+    (1..rand(0..8)).each {
+      first_day_of_month = Date.new(year, months.pop, 1)
+      student.tuition_payments.create(
+          month: first_day_of_month,
+          date: Faker::Time.between(first_day_of_month, 1.month.since(first_day_of_month)),
+          amount: Faker::Number.between(10000, 50000)
+      )
+    }
+  }
 end
 
 students = Student.all

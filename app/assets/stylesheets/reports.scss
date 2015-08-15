@@ -17,3 +17,21 @@
     }
   }
 }
+
+.tuition_payments {
+  .payments-header {
+    padding-bottom: 15px;
+  }
+  .full-name {
+    width: 40%;
+  }
+  .month {
+    width: 25%;
+  }
+  .date {
+    width: 25%;
+  }
+  .amount {
+    width: 10%;
+  }
+}

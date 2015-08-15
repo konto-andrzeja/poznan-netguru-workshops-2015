@@ -20,6 +20,7 @@ gem 'dotenv-rails'
 gem 'gretel'
 gem 'devise'
 gem 'decent_decoration'
+gem 'jquery-datatables-rails'
 
 group :development do
   gem 'better_errors'

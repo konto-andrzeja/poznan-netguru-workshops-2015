@@ -22,8 +22,8 @@ en:
   student:
     columns:
       first_name: first name
-      birthdate: Birthdate
       last_name: last name
+      birthdate: birthdate
   teacher:
     columns:
       first_name: first name
@@ -33,3 +33,9 @@ en:
     columns:
       full_name: Full name
       avg_notes: Notes avarange
+  tuition_payments:
+    columns:
+      full_name: Full name
+      month: Payment for month
+      date: Date of payment
+      amount: Amount
