@@ -22,6 +22,7 @@ en:
   student:
     columns:
       first_name: first name
+      birthdate: Birthdate
       last_name: last name
   teacher:
     columns:

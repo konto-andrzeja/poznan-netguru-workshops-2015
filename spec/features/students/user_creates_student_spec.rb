@@ -11,6 +11,7 @@ feature 'User creates student' do
   scenario 'with valid input' do
     fill_in 'First name', with: 'Adrian'
     fill_in 'Last name', with: 'Nowacki'
+    find('#student_birthdate').set('12/12/2005')
     click_button 'Create Student'
     expect(page).to have_content 'Student has been created!'
   end
@@ -25,5 +26,11 @@ feature 'User creates student' do
     fill_in 'First name', with: 'Adrian'
     click_button 'Create Student'
     expect(page).to have_content "can't be blank"
+  end
+
+  scenario 'with invalid birthdate' do
+    find('#student_birthdate').set('12/12/1850')
+    click_button 'Create Student'
+    expect(page).to have_content "is not in the past or you are too old"
   end
 end
